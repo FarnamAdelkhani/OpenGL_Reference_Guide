@@ -7,6 +7,7 @@
     x;\
     ASSERT(GLCallLog(#x, __FILE__, __LINE__))
 
+
 void GLClearError();
 
-static bool GLCallLog(const char* function, const char* file, int line);
+bool GLCallLog(const char* function, const char* file, int line);

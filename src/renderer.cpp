@@ -12,7 +12,7 @@ void GLClearError()
     while (glGetError() != GL_NO_ERROR);
 }
 
-static bool GLCallLog(const char* function, const char* file, int line)
+bool GLCallLog(const char* function, const char* file, int line)
 {
     while (GLenum error = glGetError())
     {
