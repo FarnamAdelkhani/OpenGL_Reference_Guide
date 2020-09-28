@@ -41,7 +41,7 @@ We need a vertex buffer and shader.
 
 ---
 
-Debugging
+Debugging  
 
 Getting a black screen in OpenGL and not knowing what you did wrong doesn't have to be a nightmare. (maybe)  
 
@@ -62,30 +62,30 @@ Options to enhance error handling for OpenGL:
   
 
 
-  `#define ASSERT(x) if (!(x)) __debugbreak();
-  #define GLCall(x) GLClearError();\
-      x;\
-      ASSERT(GLCallLog(#x, __FILE__, __LINE__))`
+  `#define ASSERT(x) if (!(x)) __debugbreak();  
+  #define GLCall(x) GLClearError();\  
+      x;\  
+      ASSERT(GLCallLog(#x, __FILE__, __LINE__))`  
 
-  `static void GLClearError()`
-  `{`
-      `while (glGetError() != GL_NO_ERROR);`
-  `}`
-
-  `static bool GLCallLog(const char* function, const char* file, int line)`
-  `{`
-      `while (GLenum error = glGetError())`
-      `{`
-          `std::cout << "[OpenGL Error] (" << error << ")" << function <<` 
-              `" " << file << ":" << line << std::endl;`
-          `return false;`
-      `}`
-      `return true;`
-  `}`
+  `static void GLClearError()`  
+  `{`  
+      `while (glGetError() != GL_NO_ERROR);`  
+  `}` 
+  
+  `static bool GLCallLog(const char* function, const char* file, int line)`  
+  `{`  
+      `while (GLenum error = glGetError())`  
+      `{`  
+          `std::cout << "[OpenGL Error] (" << error << ")" << function <<`   
+              `" " << file << ":" << line << std::endl;`  
+          `return false;`  
+      `}`  
+      `return true;`  
+  `}`  
 
   
 
-  The snippet above allows us to then use: `GLCall()` to log errors to the terminal and stop the program once an error occurs.   
+  The snippet above allows us to then use: `GLCall()` to log errors to the terminal and stop the program once an error occurs.    
 
   The errors can be set at each GL function call within the program.  
 
